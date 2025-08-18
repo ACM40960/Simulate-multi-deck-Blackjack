@@ -1,4 +1,17 @@
-# Blackjack Strategy Simulator (Monte Carlo)
+<p align="center">
+  <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/Blackjack.png" alt="Blackjack Logo" width="200"/>
+</p>
+
+<h1 align="center">🎲  Blackjack Strategy Simulator (Monte Carlo)</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" />
+  <img src="https://img.shields.io/badge/NumPy-Latest-orange" />
+  <img src="https://img.shields.io/badge/Matplotlib-Latest-green" />
+  <img src="https://img.shields.io/badge/Pandas-Latest-yellow" />
+  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" />
+  <img src="https://img.shields.io/github/stars/ACM40960/Simulate-single-deck-Blackjack?style=social" />
+</p>
 
 This project simulates and analyzes the game of Blackjack (21) using **Monte Carlo methods**.  
 It evaluates different strategies by simulating large numbers of games, computing expected values (EV), win/draw/loss rates, and visualizing performance.
@@ -68,6 +81,7 @@ Run the below commands in order(CMD):
 2. python -m src.analyze
 3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
 ---
+
 
 
 
