@@ -17,6 +17,23 @@ This project simulates and analyzes the game of Blackjack (21) using **Monte Car
 It evaluates different strategies by simulating large numbers of games, computing expected values (EV), win/draw/loss rates, and visualizing performance.
 
 ---
+## 📖 Table of Contents
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Project Structure](#project-structure)  
+4. [Installation](#installation)  
+5. [Simulation Pipeline](#simulation-pipeline)  
+6. [Experiment Setup](#experiment-setup)  
+7. [How to Run](#how-to-run)  
+8. [Outputs & Analysis](#outputs--analysis)  
+9. [Future Work](#future-work)  
+10. [Contributing](#contributing)  
+11. [License](#license)  
+12. [Contact](#contact)
+
+---
+
+
 
 ## Features
 - **Blackjack rules** (configurable decks, soft 17 behavior, splits, doubles, blackjack payout).
@@ -81,6 +98,7 @@ Run the below commands in order(CMD):
 2. python -m src.analyze
 3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
 ---
+
 
 
 
