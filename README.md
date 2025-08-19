@@ -21,11 +21,11 @@ It evaluates different strategies by simulating large numbers of games, computin
 1. [Overview](#overview)  
 2. [Features](#features)  
 3. [Project Structure](#project-structure)  
-4. [Installation](#installation)  
-5. [Simulation Pipeline](#simulation-pipeline)   
-6. [Outputs & Analysis](#outputs--analysis)  
-7. [Future Work](#future-work)  
-8. [Contributing](#contributing)  
+4. [Installation](#installation)
+5. [Methodology](#Methodology)
+6. [Compiling](#Compiling)
+7. [Outputs & Analysis](#outputs--analysis)
+8. [Results & Discussion](#Results--Discussion)
 9. [Contact](#contact)
 
 ---
@@ -85,7 +85,7 @@ git clone https://github.com/yourusername/blackjack_simulation_python.git
 cd blackjack_simulation_python
 pip install -r requirements.txt
 
-## Methodology
+## 🔍 Methodology
 
 1. **Game Modelling**
    - **Deck Model:** Supports single or multiple decks with shuffling.  
@@ -109,17 +109,16 @@ pip install -r requirements.txt
    - **Loss Rate** – Percentage of units lost.  
    - **Average EV per Hand** – Expected value in units over all hands.  
    - **Cumulative Earnings Graph** – Visualizes performance over time with percentile bands.
-
 ---
 
-## Compiling
+## 🃏 Compiling
 Run the below commands in order(CMD):
 1. python -m src.simulate_games --ndecks 1 --max_rows 100000
 2. python -m src.analyze
 3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
 ---
 
-## 📊 Outputs
+## 📊 outputs--analysis
 
 Simulation produces:
 
@@ -146,7 +145,7 @@ S17 improves EV by ≈ +0.2pp
 
 Takeaway: Always play Basic Strategy at 3:2, S17, DAS tables; avoid 6:5 games.
 
-## Contact
+## 🤝Contact
 
 In case of any clarifications or queries, do reach out to the author :-
 
@@ -155,6 +154,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
