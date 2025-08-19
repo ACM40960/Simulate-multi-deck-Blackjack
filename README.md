@@ -22,43 +22,68 @@ It evaluates different strategies by simulating large numbers of games, computin
 2. [Features](#features)  
 3. [Project Structure](#project-structure)  
 4. [Installation](#installation)  
-5. [Simulation Pipeline](#simulation-pipeline)  
-6. [Experiment Setup](#experiment-setup)  
-7. [How to Run](#how-to-run)  
-8. [Outputs & Analysis](#outputs--analysis)  
-9. [Future Work](#future-work)  
-10. [Contributing](#contributing)  
-11. [License](#license)  
-12. [Contact](#contact)
+5. [Simulation Pipeline](#simulation-pipeline)   
+6. [Outputs & Analysis](#outputs--analysis)  
+7. [Future Work](#future-work)  
+8. [Contributing](#contributing)  
+9. [Contact](#contact)
 
 ---
 
+## 🔍 Overview
+Blackjack is modeled as a **finite-horizon stochastic control problem**.  
+Each state includes:  
+- Player total  
+- Soft/hard flag  
+- Dealer upcard  
+- Split count  
+- Double availability  
 
+Actions = {Hit, Stand, Double, Split}.  
+We simulate many rounds to estimate EV with **95% confidence intervals**, enabling fair comparisons of strategies and rules.
 
-## Features
-- **Blackjack rules** (configurable decks, soft 17 behavior, splits, doubles, blackjack payout).
-- **Strategy evaluation** from a pre-computed optimal strategy (`strategy.pkl`).
-- **Monte Carlo simulation** for realistic statistical results.
-- **Session-based performance analysis** with quantile bands.
-- **CSV output** of simulated games for further analysis.
-- **Visualization** of:
-  - Strategy decision matrices (hard hands, soft hands, splits).
-  - Cumulative earnings with percentile bands.
-- **Summary statistics**: win rate, draw rate, loss rate, EV per hand.
 ---
 
-## Background
+## ✨ Features
+- Flexible **house rules**:  
+  - Decks: single or multi-deck  
+  - Dealer S17/H17  
+  - Payout: 3:2 vs 6:5  
+  - Double-after-split, re-splitting, etc.  
+- Two policies: **Basic Strategy** vs **Naive**.  
+- Supports **dataset generation** (EV lookups, action heatmaps) and **finite-shoe simulation**.  
+- Outputs **EV curves, win/loss/push rates, quantile bands**.  
+- All results export to CSV + plots for reproducibility.  
 
-### Blackjack Rules
-- Number cards (2–10) have face value.  
-- Face cards (J, Q, K) are worth 10.  
-- Ace (A) is worth 1 or 11.  
-- Dealer must hit until 17+ (soft 17 rules configurable).  
-- Blackjack pays 3:2 (1.5 units).  
-
-### Monte Carlo Method
-This simulation relies on **repeated random sampling** to approximate probabilities and outcomes.
 ---
+
+## 📂 Project Structure
+```
+simulate-blackjack/
+├── blackjack_pipeline.py # Main pipeline
+├── strategies/
+│ ├── basic_strategy.py # Basic strategy lookup
+│ └── simple_strategy.py # Naive (hit threshold) strategy
+├── data/
+│ └── strategy.pkl # Pre-computed strategy table
+├── outputs/ # Simulation results (CSVs + plots)
+├── docs/images/ # Figures used in README & poster
+├── requirements.txt
+└── README.md
+```
+---
+
+## ⚙️ Installation
+
+### Prerequisites
+- Python **3.10+**
+- pip
+
+### Setup
+
+git clone https://github.com/yourusername/blackjack_simulation_python.git
+cd blackjack_simulation_python
+pip install -r requirements.txt
 
 ## Methodology
 
@@ -86,12 +111,7 @@ This simulation relies on **repeated random sampling** to approximate probabilit
    - **Cumulative Earnings Graph** – Visualizes performance over time with percentile bands.
 
 ---
-## Installation
-1. Clone the repository:
-git clone https://github.com/yourusername/blackjack_simulation_python.git
-cd blackjack_simulation_python
-2. pip install -r requirements.txt
----
+
 ## Compiling
 Run the below commands in order(CMD):
 1. python -m src.simulate_games --ndecks 1 --max_rows 100000
@@ -99,8 +119,42 @@ Run the below commands in order(CMD):
 3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
 ---
 
+## 📊 Outputs
 
+Simulation produces:
 
+CSV files: win/push/loss %, EV, CI
+
+Plots: session EV convergence & quantile bands
+
+Example EV Quantile Plot
+<p align="center"> <img src="docs/images/ev_quantile_bands.png" width="600"/> </p>
+Example Heatmap of Decisions
+<p align="center"> <img src="docs/images/heatmap_basic.png" width="600"/> </p>
+
+## 📈 Results & Discussion
+
+Basic vs Naive: Basic improves win rate by +2.25pp, reduces loss by −1.3pp.
+
+Deck count: EV worsens slightly with more decks (1–2 ≈ break-even, 4–6 negative).
+
+Rules matter more than deck count:
+
+S17 improves EV by ≈ +0.2pp
+
+6:5 payout reduces EV by −1.3–1.5pp
+
+Takeaway: Always play Basic Strategy at 3:2, S17, DAS tables; avoid 6:5 games.
+
+## Contact
+
+In case of any clarifications or queries, do reach out to the author :-
+
+**Krishna Ramachandra** krishna.ramachandra@ucdconnect.ie
+
+**zhixuan zhou** zhixuan.zhou@ucdconnect.ie
+
+**DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
 
 
 
