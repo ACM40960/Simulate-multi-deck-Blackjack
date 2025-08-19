@@ -9,7 +9,6 @@
   <img src="https://img.shields.io/badge/NumPy-Latest-orange" />
   <img src="https://img.shields.io/badge/Matplotlib-Latest-green" />
   <img src="https://img.shields.io/badge/Pandas-Latest-yellow" />
-  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" />
   <img src="https://img.shields.io/github/stars/ACM40960/Simulate-single-deck-Blackjack?style=social" />
 </p>
 
@@ -120,30 +119,88 @@ Run the below commands in order(CMD):
 
 ## 📊 outputs--analysis
 
-Simulation produces:
+The simulation produces **CSV results** (EV, win/draw/loss %, 95% CI) and **visual plots** that illustrate how strategy and rule variations impact outcomes.  
+Below are three representative figures from our experiments:
 
-CSV files: win/push/loss %, EV, CI
+### 🎯 EV vs Deck Count (Basic Strategy)
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/ev_vs_decks.png" width="600"/> </p>
 
-Plots: session EV convergence & quantile bands
+- Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
+- **1–2 decks**: EV is close to break-even (CIs overlap zero).  
+- **4–6 decks**: EV becomes negative, confirming that larger deck counts increase the house edge.  
+- Practical insight: Deck count matters, but less than payout and dealer rules.  
 
-Example EV Quantile Plot
-<p align="center"> <img src="docs/images/ev_quantile_bands.png" width="600"/> </p>
-Example Heatmap of Decisions
-<p align="center"> <img src="docs/images/heatmap_basic.png" width="600"/> </p>
+### 📈 Hit-Threshold Strategy Returns
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_basic/ev_vs_decks.png" width="600"/> </p>
+
+- Simulated a naive policy: “Hit until hand total ≤ *T*, else Stand.”  
+- EV peaks around **T ≈ 15–16** (soft hands ≈ 17–18).  
+- Increasing *T* initially reduces premature stands, but after ~16 busts increase and EV declines.  
+- Even at its peak, EV remains **negative**, showing that ignoring **dealer upcard** and **softness** leads to poor outcomes.  
+
+### 🔥 Comparative EV across Strategies
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/threshold_plot.png" width="600"/> </p>
+
+- **Basic Strategy** vs **Naive Strategy** under identical rules:  
+  - Basic: Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**, EV ≈ **−0.55%**  
+  - Naive: Win / Push / Lose ≈ **41.03% / 9.66% / 49.32%**, EV ≈ **−6.03%**  
+- 📌 **Conclusion**:  
+  - Basic Strategy significantly reduces losses (~5.5pp improvement over Naive).  
+  - Rule changes (e.g., S17 vs H17, payout 3:2 vs 6:5) affect EV more strongly than deck count.  
+  - Practical takeaway: **Use Basic Strategy, play at 3:2 S17 tables, avoid 6:5 games.**  
 
 ## 📈 Results & Discussion
 
-Basic vs Naive: Basic improves win rate by +2.25pp, reduces loss by −1.3pp.
+Our simulations quantify the performance gap between **Basic Strategy** and a **Naive hit-threshold strategy**, as well as the influence of deck count and rule variations.  
 
-Deck count: EV worsens slightly with more decks (1–2 ≈ break-even, 4–6 negative).
+---
 
-Rules matter more than deck count:
+### 🔹 Deck Count Effect
+- Under **Basic Strategy**, EV is near break-even for **1–2 decks** (confidence intervals overlap 0).  
+- With **4–6 decks**, EV turns clearly negative (≈ −0.5% per hand at 6 decks).  
+- Interpretation: More decks **slightly worsen the house edge**, but the impact is modest compared to rules like payout ratios.  
 
-S17 improves EV by ≈ +0.2pp
+---
 
-6:5 payout reduces EV by −1.3–1.5pp
+### 🔹 Hit-Threshold Policy
+- Naive “Hit ≤ T, else Stand” rule peaks around **T ≈ 15–16** (soft ≈ 17–18).  
+- EV improves initially but never crosses into positive territory.  
+- Bust rates rise quickly beyond T ≈ 16, reducing overall EV.  
+- Conclusion: **Ignoring dealer upcard and hand softness leads to unavoidable long-term losses.**  
 
-Takeaway: Always play Basic Strategy at 3:2, S17, DAS tables; avoid 6:5 games.
+---
+
+### 🔹 Full-Policy Outcomes: Basic vs Naive
+<p align="center">
+  <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outcome.png" width="600"/>
+</p>
+
+- **Basic Strategy** (6-deck):  
+  - Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**  
+  - EV ≈ **−0.55%**  
+
+- **Naive Strategy** (6-deck):  
+  - Win / Push / Lose ≈ **41.03% / 9.66% / 49.32%**  
+  - EV ≈ **−6.03%**  
+
+**Key Insights**:
+1. **Policy impact**: Switching from Naive to Basic improves EV by ~**+5.5pp**, reducing losses from ~6 units to ~0.5 units per 100 hands.  
+2. **Rule sensitivity**:  
+   - S17 (dealer stands on soft 17) improves EV by ~+0.2pp.  
+   - 6:5 payout worsens EV by ~−1.3 to −1.5pp.  
+   - Deck count effect is minor compared to these.  
+3. **Practical takeaway**:  
+   - Always play **Basic Strategy**.  
+   - Prefer **3:2 payout, S17, DAS tables**.  
+   - Avoid **6:5 tables**, where the house edge becomes significantly higher.  
+
+---
+
+📌 **Overall Conclusion**:  
+- Basic Strategy is nearly break-even under favorable rules, while Naive play incurs severe losses.  
+- Casino rule variations (payouts, dealer behavior) have far stronger influence on EV than the number of decks.  
+- Correct strategy choice and table selection are critical for minimizing expected losses.
+
 
 ## 🤝Contact
 
@@ -154,6 +211,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
