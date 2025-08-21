@@ -7,7 +7,7 @@ A single-file toolkit for studying Blackjack via Monte Carlo methods. It generat
 
 ---
 
-## ✨ Features
+## Features
 
 - **Dataset generator** (infinite-deck draws) with **rollout EVs** for `Hit` vs `Stand` at each decision state.
 - **Analysis** that computes summary metrics, EV by dealer upcard, and **heatmaps** for hard/soft hands.
@@ -16,7 +16,7 @@ A single-file toolkit for studying Blackjack via Monte Carlo methods. It generat
 
 ---
 
-## 📦 Setup
+## Setup
 
 1. **Python 3.9+** recommended.
 2. Install requirements (standard library + NumPy, Pandas, Matplotlib):
@@ -29,7 +29,7 @@ A single-file toolkit for studying Blackjack via Monte Carlo methods. It generat
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1) Generate a dataset
 Creates a CSV of decision states (*not* full rounds), including rollout EVs.
@@ -101,7 +101,7 @@ python blackjack_pipeline.py simulate \
 
 ---
 
-## 🧰 Command Reference
+## Command Reference
 
 ### `dataset`
 Generate decision-state rows (player vs dealer upcard). Uses infinite-deck draws; excludes natural blackjacks (no decision to make).
@@ -143,7 +143,7 @@ Simulate full rounds with either **basic** or **naive** policy across deck count
 
 ---
 
-## 📁 Expected Project Structure
+## Expected Project Structure
 
 ```
 .
@@ -163,7 +163,7 @@ Simulate full rounds with either **basic** or **naive** policy across deck count
 
 ---
 
-## 🔍 Notes & Interpretation
+## Notes & Interpretation
 
 - **EV sign convention:** Positive EV means the player gains units per initial hand; negative EV means losses.
 - **Rollout EVs**: For the dataset, `ev_hit_rollout` continues with a naive policy after taking one `Hit` to estimate longer-horizon value.
@@ -172,14 +172,14 @@ Simulate full rounds with either **basic** or **naive** policy across deck count
 
 ---
 
-## 🧪 Reproducibility
+## Reproducibility
 
 - All commands accept a `--seed`. For `simulate`, the script offsets seeds per job to avoid identical streams.
 - Use the same Python version and dependencies for consistent results.
 
 ---
 
-## 🛠 Troubleshooting
+## Troubleshooting
 
 - **No images generated?** Ensure `matplotlib` is installed and that `--outdir` exists or can be created.
 - **CSV missing expected columns?** Make sure you ran `dataset` with the current script; older CSVs may lack rollout EVs.
@@ -187,14 +187,14 @@ Simulate full rounds with either **basic** or **naive** policy across deck count
 
 ---
 
-## 📚 Acknowledgments / References (optional)
+## Acknowledgments / References (optional)
 
 - Standard references on Blackjack basic strategy and EV analysis (insert your chosen sources here).
 - Monte Carlo methodology in gaming/simulation contexts (insert citations).
 
 ---
 
-## ✅ Checklist (placeholders to update after runs)
+## Checklist (placeholders to update after runs)
 
 - [ ] Generated `data/blackjack_games.csv` with `--rows` = ________ (date: ________)
 - [ ] Ran `analyze` and verified:
