@@ -16,7 +16,7 @@ This project simulates and analyzes the game of Blackjack (21) using **Monte Car
 It evaluates different strategies by simulating large numbers of games, computing expected values (EV), win/draw/loss rates, and visualizing performance.
 
 ---
-## 📖 Table of Contents
+## Table of Contents
 1. [Overview](#overview)  
 2. [Features](#features)  
 3. [Project Structure](#project-structure)  
@@ -29,7 +29,7 @@ It evaluates different strategies by simulating large numbers of games, computin
 
 ---
 
-## 🔍 Overview
+## Overview
 Blackjack is modeled as a **finite-horizon stochastic control problem**.  
 Each state includes:  
 - Player total  
@@ -43,7 +43,7 @@ We simulate many rounds to estimate EV with **95% confidence intervals**, enabli
 
 ---
 
-## ✨ Features
+## Features
 - Flexible **house rules**:  
   - Decks: single or multi-deck  
   - Dealer S17/H17  
@@ -56,7 +56,7 @@ We simulate many rounds to estimate EV with **95% confidence intervals**, enabli
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 simulate-blackjack/
 ├── blackjack_pipeline.py # Main pipeline
@@ -84,7 +84,7 @@ git clone https://github.com/yourusername/blackjack_simulation_python.git
 cd blackjack_simulation_python
 pip install -r requirements.txt
 
-## 🔍 Methodology
+## Methodology
 
 1. **Game Modelling**
    - **Deck Model:** Supports single or multiple decks with shuffling.  
@@ -110,19 +110,19 @@ pip install -r requirements.txt
    - **Cumulative Earnings Graph** – Visualizes performance over time with percentile bands.
 ---
 
-## 🃏 Compiling
+## Compiling
 Run the below commands in order(CMD):
 1. python -m src.simulate_games --ndecks 1 --max_rows 100000
 2. python -m src.analyze
 3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
 ---
 
-## 📊 outputs--analysis
+## outputs--analysis
 
 The simulation produces **CSV results** (EV, win/draw/loss %, 95% CI) and **visual plots** that illustrate how strategy and rule variations impact outcomes.  
 Below are three representative figures from our experiments:
 
-### 🎯 EV vs Deck Count (Basic Strategy)
+### EV vs Deck Count (Basic Strategy)
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/ev_vs_decks.png" width="600"/> </p>
 
 - Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
@@ -130,7 +130,7 @@ Below are three representative figures from our experiments:
 - **4–6 decks**: EV becomes negative, confirming that larger deck counts increase the house edge.  
 - Practical insight: Deck count matters, but less than payout and dealer rules.  
 
-### 📈 Hit-Threshold Strategy Returns
+### Hit-Threshold Strategy Returns
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_basic/ev_vs_decks.png" width="600"/> </p>
 
 - Simulated a naive policy: “Hit until hand total ≤ *T*, else Stand.”  
@@ -138,7 +138,7 @@ Below are three representative figures from our experiments:
 - Increasing *T* initially reduces premature stands, but after ~16 busts increase and EV declines.  
 - Even at its peak, EV remains **negative**, showing that ignoring **dealer upcard** and **softness** leads to poor outcomes.  
 
-### 🔥 Comparative EV across Strategies
+### Comparative EV across Strategies
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/threshold_plot.png" width="600"/> </p>
 
 - **Basic Strategy** vs **Naive Strategy** under identical rules:  
@@ -149,20 +149,20 @@ Below are three representative figures from our experiments:
   - Rule changes (e.g., S17 vs H17, payout 3:2 vs 6:5) affect EV more strongly than deck count.  
   - Practical takeaway: **Use Basic Strategy, play at 3:2 S17 tables, avoid 6:5 games.**  
 
-## 📈 Results & Discussion
+## Results & Discussion
 
 Our simulations quantify the performance gap between **Basic Strategy** and a **Naive hit-threshold strategy**, as well as the influence of deck count and rule variations.  
 
 ---
 
-### 🔹 Deck Count Effect
+### Deck Count Effect
 - Under **Basic Strategy**, EV is near break-even for **1–2 decks** (confidence intervals overlap 0).  
 - With **4–6 decks**, EV turns clearly negative (≈ −0.5% per hand at 6 decks).  
 - Interpretation: More decks **slightly worsen the house edge**, but the impact is modest compared to rules like payout ratios.  
 
 ---
 
-### 🔹 Hit-Threshold Policy
+### Hit-Threshold Policy
 - Naive “Hit ≤ T, else Stand” rule peaks around **T ≈ 15–16** (soft ≈ 17–18).  
 - EV improves initially but never crosses into positive territory.  
 - Bust rates rise quickly beyond T ≈ 16, reducing overall EV.  
@@ -170,7 +170,7 @@ Our simulations quantify the performance gap between **Basic Strategy** and a **
 
 ---
 
-### 🔹 Full-Policy Outcomes: Basic vs Naive
+### Full-Policy Outcomes: Basic vs Naive
 <p align="center">
   <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outcome.png" width="600"/>
 </p>
@@ -196,13 +196,13 @@ Our simulations quantify the performance gap between **Basic Strategy** and a **
 
 ---
 
-📌 **Overall Conclusion**:  
+**Overall Conclusion**:  
 - Basic Strategy is nearly break-even under favorable rules, while Naive play incurs severe losses.  
 - Casino rule variations (payouts, dealer behavior) have far stronger influence on EV than the number of decks.  
 - Correct strategy choice and table selection are critical for minimizing expected losses.
 
 
-## 🤝Contact
+## Contact
 
 In case of any clarifications or queries, do reach out to the author :-
 
@@ -211,6 +211,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
