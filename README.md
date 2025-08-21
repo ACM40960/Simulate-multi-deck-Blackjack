@@ -72,7 +72,7 @@ simulate-blackjack/
 ```
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Prerequisites
 - Python **3.10+**
@@ -211,6 +211,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
