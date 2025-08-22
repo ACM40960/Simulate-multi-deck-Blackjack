@@ -159,7 +159,7 @@ Below are three representative figures from our experiments:
 - Even at its peak, EV remains **negative**, showing that ignoring **dealer upcard** and **softness** leads to poor outcomes.  
 
 ### Comparative EV across Strategies
-<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/threshold_plot.png" width="600"/> </p>
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/Table_rules.png" width="600"/> </p>
 
 - **Basic Strategy** vs **Naive Strategy** under identical rules:  
   - Basic: Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**, EV ≈ **−0.55%**  
@@ -231,6 +231,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
