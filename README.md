@@ -132,7 +132,7 @@ Run the below commands in order(CMD):
 ## Outputs
 
 The simulation produces **CSV results** (EV, win/draw/loss %, 95% CI) and **visual plots** that illustrate how strategy and rule variations impact outcomes.  
-Below are three representative figures from our experiments:
+
 
 ### EV vs Deck Count (Basic Strategy)
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/ev_vs_decks.png" width="600"/> </p>
@@ -247,6 +247,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
