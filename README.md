@@ -60,11 +60,8 @@ We simulate many rounds to estimate EV with **95% confidence intervals**, enabli
 ```
 simulate-blackjack/
 ├── blackjack_pipeline.py # Main pipeline
-├── strategies/
-│ ├── basic_strategy.py # Basic strategy lookup
-│ └── simple_strategy.py # Naive (hit threshold) strategy
 ├── data/
-│ └── strategy.pkl # Pre-computed strategy table
+│ └── blackjack_games.csv 
 ├── outputs/ # Simulation results (CSVs + plots)
 ├── docs/images/ # Figures used in README & poster
 ├── requirements.txt
@@ -211,6 +208,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
