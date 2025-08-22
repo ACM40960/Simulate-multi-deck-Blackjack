@@ -159,15 +159,44 @@ Below are three representative figures from our experiments:
 - Even at its peak, EV remains **negative**, showing that ignoring **dealer upcard** and **softness** leads to poor outcomes.  
 
 ### Comparative EV across Strategies
-<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/Table_rules.png" width="600"/> </p>
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/Table_rule.png" width="600"/> </p>
 
-- **Basic Strategy** vs **Naive Strategy** under identical rules:  
-  - Basic: Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**, EV ≈ **−0.55%**  
-  - Naive: Win / Push / Lose ≈ **41.03% / 9.66% / 49.32%**, EV ≈ **−6.03%**  
-- 📌 **Conclusion**:  
-  - Basic Strategy significantly reduces losses (~5.5pp improvement over Naive).  
-  - Rule changes (e.g., S17 vs H17, payout 3:2 vs 6:5) affect EV more strongly than deck count.  
-  - Practical takeaway: **Use Basic Strategy, play at 3:2 S17 tables, avoid 6:5 games.**  
+- Table shows the effect of rule variations on expected value (EV) per initial hand under Basic Strategy, with results averaged over 5 replicates.
+- The Base game (6-deck, H17, DAS allowed, 3:2 payout) has an EV of −0.0058 (≈−0.6% house edge), with Win% ≈43.3%, Draw% ≈8.7%, and Lose% ≈48.1%.
+- Rule changes shift EV as expected: 6:5 payout strongly worsens EV (−1.36 pp), restrictions on doubles or DAS reduce player edge (−0.15 to −0.17 pp), while S17 (+0.25 pp) and hitting split Aces (+0.11 pp) improve EV.
+- Overall, payout rules and dealer standing rules have the largest impact, while max splits have little effect.
+
+### Soft Hands Heatmap 
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/soft_heatmap.png" width="600"/> </p>
+
+- A2–A6: Always hit (low risk of bust, potential to improve).
+- A7 (soft 18): Flexible:- stand vs weak dealer (2–7), but hit vs strong dealer (8–Ace).
+- A8–A10: Always stand (already strong hands).
+
+### Hard Hands Heatmap
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/hard_heatmap.png" width="600"/> </p>
+
+- Totals 4–11: Always hit (no risk of bust).
+- Totals 12–16: Critical zone:- hit against strong dealer cards (7–Ace), but stand against weak dealer cards (2–6) to let the dealer bust.
+- Totals 17+: Always stand (bust risk is too high).
+
+### Full-Policy Outcomes: Basic vs Naive
+<p align="center">
+  <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outcome.png" width="600"/>
+</p>
+
+- **Basic Strategy** (6-deck):  
+  - Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**  
+  - EV ≈ **−0.55%**  
+
+- **Naive Strategy** (6-deck):  
+  - Win / Push / Lose ≈ **41.03% / 9.66% / 49.32%**  
+  - EV ≈ **−6.03%**  
+
+**Key Insights**:
+
+
+
 
 ## Results & Discussion
 
@@ -189,30 +218,17 @@ Our simulations quantify the performance gap between **Basic Strategy** and a **
 - Conclusion: **Ignoring dealer upcard and hand softness leads to unavoidable long-term losses.**  
 
 ---
-
 ### Full-Policy Outcomes: Basic vs Naive
-<p align="center">
-  <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outcome.png" width="600"/>
-</p>
-
-- **Basic Strategy** (6-deck):  
-  - Win / Push / Lose ≈ **43.28% / 8.68% / 48.04%**  
-  - EV ≈ **−0.55%**  
-
-- **Naive Strategy** (6-deck):  
-  - Win / Push / Lose ≈ **41.03% / 9.66% / 49.32%**  
-  - EV ≈ **−6.03%**  
-
-**Key Insights**:
-1. **Policy impact**: Switching from Naive to Basic improves EV by ~**+5.5pp**, reducing losses from ~6 units to ~0.5 units per 100 hands.  
-2. **Rule sensitivity**:  
+- **Policy impact**: Switching from Naive to Basic improves EV by ~**+5.5pp**, reducing losses from ~6 units to ~0.5 units per 100 hands.  
+- **Rule sensitivity**:  
    - S17 (dealer stands on soft 17) improves EV by ~+0.2pp.  
    - 6:5 payout worsens EV by ~−1.3 to −1.5pp.  
    - Deck count effect is minor compared to these.  
-3. **Practical takeaway**:  
+- **Practical takeaway**:  
    - Always play **Basic Strategy**.  
    - Prefer **3:2 payout, S17, DAS tables**.  
    - Avoid **6:5 tables**, where the house edge becomes significantly higher.  
+
 
 ---
 
@@ -231,6 +247,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
