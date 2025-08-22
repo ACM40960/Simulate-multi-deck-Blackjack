@@ -143,7 +143,7 @@ Below are three representative figures from our experiments:
 - Practical insight: Deck count matters, but less than payout and dealer rules.
 
 ### EV vs Deck Count (Naive Strategy)
-<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/ev_vs_decks.png" width="600"/> </p>
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_naive/ev_vs_decks.png" width="600"/> </p>
 
 - Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
 - **1–2 decks**: EV is close to break-even (CIs overlap zero).  
@@ -232,6 +232,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
