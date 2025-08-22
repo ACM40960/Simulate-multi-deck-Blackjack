@@ -63,6 +63,11 @@ simulate-blackjack/
 ├── data/
 │ └── blackjack_games.csv 
 ├── outputs/ # Simulation results (CSVs + plots)
+├── outputs_basic/
+├── outputs_house_rules/ 
+├── outputs_naive/ 
+├── outputs_s17/ 
+├── outputs_variant/ 
 ├── docs/images/ # Figures used in README & poster
 ├── requirements.txt
 └── README.md
@@ -208,6 +213,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
