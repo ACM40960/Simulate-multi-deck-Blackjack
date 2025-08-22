@@ -2,7 +2,7 @@
   <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/Blackjack.png" alt="Blackjack Logo" width="200"/>
 </p>
 
-<h1 align="center">🎲  Blackjack Strategy Simulator (Monte Carlo)</h1>
+<h1 align="center">🎲  Multi-deck BlackJack Simulator (Monte Carlo)</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" />
@@ -114,12 +114,22 @@ pip install -r requirements.txt
 
 ## Compiling
 Run the below commands in order(CMD):
-1. python -m src.simulate_games --ndecks 1 --max_rows 100000
-2. python -m src.analyze
-3. python -m src.test_strategy --ndecks 1 --length_session 1000 --n_session 200
+### Dataset generation (infinite deck)
+- python blackjack_pipeline.py dataset --n-samples 50000 --outdir data
+### Aggregate / analyze results
+- python blackjack_pipeline.py analyze --indir outputs --outdir summary
+### Simulation
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --n-games 200000 --replicates 5 --outdir outputs
+- python blackjack_pipeline.py simulate --policy naive --decks 1 --n-games 100000 --replicates 5 --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --s17 --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --payout65 --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --no-das --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --double-911 --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --hit-split-aces --outdir outputs
+- python blackjack_pipeline.py simulate --policy basic --decks 6 --max-splits 2 --outdir outputs
 ---
 
-## outputs--analysis
+## Outputs
 
 The simulation produces **CSV results** (EV, win/draw/loss %, 95% CI) and **visual plots** that illustrate how strategy and rule variations impact outcomes.  
 Below are three representative figures from our experiments:
@@ -130,7 +140,16 @@ Below are three representative figures from our experiments:
 - Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
 - **1–2 decks**: EV is close to break-even (CIs overlap zero).  
 - **4–6 decks**: EV becomes negative, confirming that larger deck counts increase the house edge.  
+- Practical insight: Deck count matters, but less than payout and dealer rules.
+
+### EV vs Deck Count (Naive Strategy)
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/ev_vs_decks.png" width="600"/> </p>
+
+- Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
+- **1–2 decks**: EV is close to break-even (CIs overlap zero).  
+- **4–6 decks**: EV becomes negative, confirming that larger deck counts increase the house edge.  
 - Practical insight: Deck count matters, but less than payout and dealer rules.  
+
 
 ### Hit-Threshold Strategy Returns
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_basic/ev_vs_decks.png" width="600"/> </p>
@@ -213,6 +232,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
