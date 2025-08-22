@@ -145,14 +145,13 @@ Below are three representative figures from our experiments:
 ### EV vs Deck Count (Naive Strategy)
 <p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_naive/ev_vs_decks.png" width="600"/> </p>
 
-- Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Basic Strategy**.  
-- **1–2 decks**: EV is close to break-even (CIs overlap zero).  
-- **4–6 decks**: EV becomes negative, confirming that larger deck counts increase the house edge.  
-- Practical insight: Deck count matters, but less than payout and dealer rules.  
+- Shows **expected value (EV) per initial hand** with 95% confidence intervals, using **Naive Strategy**.
+- **1–6 decks**: EV stays around −0.059, with overlapping CIs indicating no significant deck effect.
+- Practical insight: Deck count has little influence compared to the large inherent disadvantage of the Naive policy.  
 
 
 ### Hit-Threshold Strategy Returns
-<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs_basic/ev_vs_decks.png" width="600"/> </p>
+<p align="center"> <img src="https://github.com/ACM40960/Simulate-single-deck-Blackjack/blob/main/outputs/threshold_plot.png" width="600"/> </p>
 
 - Simulated a naive policy: “Hit until hand total ≤ *T*, else Stand.”  
 - EV peaks around **T ≈ 15–16** (soft hands ≈ 17–18).  
@@ -232,6 +231,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
