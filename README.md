@@ -83,7 +83,9 @@ simulate-blackjack/
 ### Setup
 
 git clone https://github.com/yourusername/blackjack_simulation_python.git
+
 cd blackjack_simulation_python
+
 pip install -r requirements.txt
 
 ## Methodology
@@ -247,6 +249,7 @@ In case of any clarifications or queries, do reach out to the author :-
 **zhixuan zhou** zhixuan.zhou@ucdconnect.ie
 
 **DISCLAIMER** : This project is intended purely for educational and academic purpose and does not endorse betting or gambling in any form.
+
 
 
 
